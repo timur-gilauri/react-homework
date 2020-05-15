@@ -3,25 +3,76 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "npx babel src --out-dir ./public/ --presets react-app/prod && node server.js",
-    "prestart": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/timur-gilauri/react-homework.git"
   },
   "author": "",
   "license": "ISC",
+  "homepage": "https://github.com/timur-gilauri/react-homework#readme",
   "bugs": {
     "url": "https://github.com/timur-gilauri/react-homework/issues"
   },
-  "homepage": "https://github.com/timur-gilauri/react-homework#readme"
+  "scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.2.0",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^14.0.1",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-test-renderer": "^16.9.2",
+    "@types/webpack": "^4.41.13",
+    "@types/webpack-dev-server": "^3.10.1",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "babel-jest": "^26.0.1",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.0.1",
+    "prettier": "^1.19.1",
+    "react-test-renderer": "^16.13.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ],
+    "roots": [
+      "<rootDir>/tests/",
+      "<rootDir>/src/"
+    ],
+    "rootDir": ".",
+    "testRegex": ".spec.js$",
+    "coverageDirectory": "../coverage",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "testEnvironment": "node"
+  }
 }
