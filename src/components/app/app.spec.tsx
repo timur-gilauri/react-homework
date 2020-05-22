@@ -1,6 +1,6 @@
-import React from 'react'
-import Renderer from 'react-test-renderer'
-import { App } from './'
+import React from 'react';
+import Renderer from 'react-test-renderer';
+import {App} from './';
 
 describe('App component', () => {
   it('Should be build', () => {

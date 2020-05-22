@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     filename: 'app.[hash].js',
     path: join(__dirname, 'dist'),
@@ -16,6 +16,11 @@ module.exports = {
         test: /\.j(s|sx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
@@ -32,4 +37,5 @@ module.exports = {
   optimization: {
     usedExports: true,
   },
+  watch: true,
 };
