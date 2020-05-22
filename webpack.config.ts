@@ -1,21 +1,29 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const webpack = require('webpack');
-const { join } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+import webpack from 'webpack';
 
-module.exports = {
+import {join} from 'path';
+
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+import {CleanWebpackPlugin} from 'clean-webpack-plugin';
+
+const config: webpack.Configuration = {
   entry: './src/index.tsx',
   output: {
     filename: 'app.[hash].js',
     path: join(__dirname, 'dist'),
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.j(s|sx)$/,
+        test: /\.ts(x?)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['awesome-typescript-loader'],
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
       },
       {
         test: /\.scss$/,
@@ -23,6 +31,10 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
   },
   plugins: [
     new webpack.ProgressPlugin(),
@@ -32,10 +44,11 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.ts', '.tsx'],
   },
   optimization: {
     usedExports: true,
   },
-  watch: true,
 };
+
+export default config;

@@ -14,9 +14,9 @@
     "url": "https://github.com/timur-gilauri/react-homework/issues"
   },
   "scripts": {
-    "dev": "tsc && webpack --mode development",
-    "prod": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open --hot",
+    "dev": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --mode development",
+    "prod": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --mode production",
+    "start": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack-dev-server --mode development --open --hot",
     "test": "jest"
   },
   "dependencies": {
@@ -43,6 +43,7 @@
     "@types/webpack-dev-server": "^3.10.1",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@typescript-eslint/parser": "^2.9.0",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -59,8 +60,10 @@
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.1",
     "sass-loader": "^8.0.2",
+    "source-map-loader": "^0.2.4",
     "style-loader": "^1.2.1",
     "ts-jest": "^26.0.0",
+    "tsconfig-paths": "^3.9.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
